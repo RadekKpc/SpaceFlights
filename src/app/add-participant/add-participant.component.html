@@ -1,0 +1,47 @@
+<div class=' container '>
+    <div class="row justify-content-center">
+
+    <hr>
+    <br>
+    <div class='col-12 text-center'>
+    <h1>Add new Participant</h1>
+    <br>
+    </div>
+    <form [formGroup]="modelForm" (ngSubmit)="onSubmit(modelForm)">
+        <div class='form-group'>
+            <label for="name" >Name:</label>
+            <input name="name" class="form-control col-12 " id="name" formControlName="name" aria-describedby="nameError">
+            <small  *ngIf="formErrors.nameDate" class="form-text text-muted" id="nameError">{{ formErrors.name }}</small>
+        </div>
+    <div class='form-group'>
+        <label for="surname" >Surname:</label>
+        <input name="surname" class="form-control col-12" id="surname" formControlName="surname" aria-describedby="surnameError">
+        <small  *ngIf="formErrors.surname" class="form-text text-muted" id="surnameError">{{ formErrors.surname }}</small>
+    </div>
+    <div class='form-group'>
+        <label for="country" >Country:</label>
+        <input name="country" class="form-control col-12" id="country" formControlName="country" aria-describedby="countryError">
+        <small  *ngIf="formErrors.country" class="form-text text-muted" id="countryError">{{ formErrors.country }}</small>
+    </div>
+
+    <div class='form-group'>
+        <label for="gender" >Gender:</label>
+        <select name="gender" class="custom-select mr-sm-2" id="gender" formControlName="gender" aria-describedby="genderError">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Not known">I don't want to give</option>
+
+        </select>
+        <small  *ngIf="formErrors.gender" class="form-text text-muted" id="genderError">{{ formErrors.gender }}</small>
+    </div>
+
+    <div class='form-group'>
+        <label for="birthDate" >Birth date:</label>
+        <input name="birthDate" class="form-control col-12" id="birthDate" formControlName="birthDate" aria-describedby="birthDateError">
+        <small  *ngIf="formErrors.birthDate" class="form-text text-muted" id="birthDateError">{{ formErrors.birthDate }}</small>
+    </div>
+
+     <button [disabled]="!modelForm.valid" type="submit" class="btn btn-success" >Send</button>
+    </form>
+    </div>
+    </div>

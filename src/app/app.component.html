@@ -1,5 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <a class="navbar-brand" href="#"><i class="fa fa-home" style="font-size:24px"></i></a>
+  <h4 class="text-white d-lg-none">Space Flights <i class="fa fa-rocket" style="font-size:24px"></i></h4>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,31 +9,37 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" routerLink='/reservation'>Reservation<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+          Flights
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item text-light bg-dark" routerLink='/flight/list'>Flights List</a>
+          <a class="dropdown-item text-light bg-dark" routerLink='/flight/add'>Add Flight</a>
+          <a class="dropdown-item text-light bg-dark" routerLink='/reservation/add'>Add Reservation</a>
+          <a class="dropdown-item text-light bg-dark" routerLink='/reservation/list'>Reservations list</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Participants
+        </a>
+        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item text-light bg-dark" routerLink="/participant/list">List</a>
+          <a class="dropdown-item text-light bg-dark" routerLink="/participant/add">Add Participants</a>
+        </div>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
+
+    <h4 class="text-white d-none d-lg-block">Space Flights <i class='fas fa-rocket'></i></h4>
+
 </nav>
-<app-flights-list></app-flights-list>
+<!-- <div style="background-image: url('assets/img/gwiazda.jpg');background-color: #cccccc; height: 400px;">
+  <img class="img-responsive" src="https://s.redefine.pl/file/o2/redefine/cp/3r/3rudiq7fta3m6oyijfquw2qs7bert799.jpg">
+</div> -->
+<div style="margin-top: 100px"></div>
+
 <router-outlet></router-outlet>

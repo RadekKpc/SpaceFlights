@@ -1,0 +1,33 @@
+<div class="container" >
+    <!-- <app-search-course-panel (propertiesAreChanged)="searchCourses($event)">
+    </app-search-course-panel> -->
+    <div class='row' >
+        <div class='col-12' style='margin-top: 20px; margin-bottom: 20px'>
+            <table class='table table-striped table-dark' style="font-size: 13px;">
+                <thead >
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Flight Number</th>
+                      <th scope="col">Participant</th>
+                      <th scope="col">Begin date</th>
+                      <th scope="col">End Date</th>
+                      <th scope="col">is paid</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                        <tr *ngFor="let reservation of reservations">
+                                <th >{{reservation.id}}</th>
+                                <td>{{reservation.flightID}}</td>
+                                <td>{{reservation.participantID}}</td>
+                                <td>{{reservation.startDate}}</td>
+                                <td>{{reservation.endDate}}</td>
+                                <td><div *ngIf='reservation.isPaid == 1'> Yes</div><div *ngIf='reservation.isPaid == 0'> No</div></td>
+                            <!-- <app-flight [flight] = "flight" (flightIsDeleted)="deleteFlight($event)"></app-flight> -->
+                        </tr>
+                  </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
