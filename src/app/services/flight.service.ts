@@ -33,5 +33,7 @@ export class FlightService {
     console.log("deelting/"+id);
     return this.http.delete('http://localhost:8080//flight/delete/'+id);
   }
-
+  getFlightIdByParticipant(id:number,isPaid:String){
+    return this.http.get('http://localhost:8080/flight-participant/'+isPaid+'/'+id);
+  }
 }

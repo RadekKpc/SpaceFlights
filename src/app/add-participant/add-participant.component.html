@@ -37,7 +37,7 @@
 
     <div class='form-group'>
         <label for="birthDate" >Birth date:</label>
-        <input name="birthDate" class="form-control col-12" id="birthDate" formControlName="birthDate" aria-describedby="birthDateError">
+        <input name="birthDate" type="date" class="form-control col-12" id="birthDate" formControlName="birthDate" aria-describedby="birthDateError">
         <small  *ngIf="formErrors.birthDate" class="form-text text-muted" id="birthDateError">{{ formErrors.birthDate }}</small>
     </div>
 

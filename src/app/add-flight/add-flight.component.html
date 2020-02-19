@@ -11,12 +11,13 @@
         <div class='form-group'>
             <div class=''></div>
             <label for="startDate" >Begin Date:</label>
-            <input name="startDate" class="form-control col-12 " id="startDate" formControlName="startDate" aria-describedby="startDateError">
+            <input name="startDate" class="form-control col-12" type="datetime-local"  id="startDate" formControlName="startDate" aria-describedby="startDateError">
+
             <small  *ngIf="formErrors.startDate" class="form-text text-muted" id="startDateError">{{ formErrors.startDate }}</small>
         </div>
     <div class='form-group'>
         <label for="endDate" >End Date:</label>
-        <input name="endDate" class="form-control col-12" id="ects" formControlName="endDate" aria-describedby="endDateError">
+        <input name="endDate" class="form-control col-12" type="datetime-local"  id="endDate" formControlName="endDate" aria-describedby="endDateError">
         <small  *ngIf="formErrors.endDate" class="form-text text-muted" id="endDateError">{{ formErrors.endDate }}</small>
     </div>
     <div class='form-group'>

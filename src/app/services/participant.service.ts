@@ -13,7 +13,6 @@ export class ParticipantService {
     return this.http.get('http://localhost:8080/participant/'+id);
   }
   getAllParticipants():Observable<any>{
-    console.log("sima");
     return this.http.get('http://localhost:8080/participant');
   }
   addParticipant(participant): Observable<any>{
@@ -33,5 +32,8 @@ export class ParticipantService {
   }
   deleteParticipant(id:number){
     return this.http.delete('http://localhost:8080//participant/delete/'+id);
+  }
+  getParticipantsByFlightID(id:number,isPaid:String){
+    return this.http.get('http://localhost:8080/participant-flight/'+isPaid+'/'+id);
   }
 }

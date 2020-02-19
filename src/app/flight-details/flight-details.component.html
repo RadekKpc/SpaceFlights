@@ -1,0 +1,85 @@
+
+<div *ngIf='flight != null' style='margin-top: 50px '>
+    <div class="card text-center text-white bg-dark mb-3">
+        <div class="card-header">
+          <b>Flight {{flight.id}}</b>
+        </div>
+        <div class="card-body text-left">
+          <h6 class="card-title text-center">Details</h6>
+          <p class="card-text">Begin Date: {{flight.startDate}}</p>
+          <p class="card-text">End Date: {{flight.endDate}}</p>
+          <p class="card-text">Places: {{flight.participantCapacity}}</p>
+          <p class="card-text">Price: {{flight.price}}</p>
+        </div>
+        <div class="card-body">
+            <h6 class="card-title">Functions</h6>
+            <div class='text-left'>
+                <button (click)="deleteFlight(flight.id)"  class=" btn btn-primary btn-danger">Delete Flight</button>
+            </div>
+        </div>
+        <div class="card-body">
+          <h6 class="card-title">All Paid Reservations</h6>
+          <div class="container" >
+            <div class='row' >
+                <div class='col-12' style='margin-top: 20px; margin-bottom: 20px'>
+                    <table class='table table-striped table-dark' style="font-size: 13px;">
+                        <thead >
+                            <tr>
+                              <th scope="col">ID</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Surname</th>
+                              <th scope="col">Gender</th>
+                              <th scope="col">Country</th>
+                              <th scope="col">Birth date</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                                <tr *ngFor="let participant of paidParticipants">
+                                    <th >{{participant.id}}</th>
+                                        <th >{{participant.name}}</th>
+                                        <td>{{participant.surname}}</td>
+                                        <td>{{participant.gender}}</td>
+                                        <td>{{participant.country}}</td>
+                                        <td>{{participant.birthDate}}</td>
+                                </tr>
+                          </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+        <h6 class="card-title">All unpaid Reservations</h6>
+        <div class="container" >
+            <div class='row' >
+                <div class='col-12' style='margin-top: 20px; margin-bottom: 20px'>
+                    <table class='table table-striped table-dark' style="font-size: 13px;">
+                        <thead >
+                            <tr>
+                              <th scope="col">ID</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Surname</th>
+                              <th scope="col">Gender</th>
+                              <th scope="col">Country</th>
+                              <th scope="col">Birth date</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                                <tr *ngFor="let participant of unpaidParticipants">
+                                        <th >{{participant.id}}</th>
+                                        <th >{{participant.name}}</th>
+                                        <td>{{participant.surname}}</td>
+                                        <td>{{participant.gender}}</td>
+                                        <td>{{participant.country}}</td>
+                                        <td>{{participant.birthDate}}</td>
+                                </tr>
+                          </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+        </div>
+      </div>
+</div>

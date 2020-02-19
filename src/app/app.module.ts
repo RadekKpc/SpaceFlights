@@ -9,26 +9,31 @@ import {ParticipantService} from './services/participant.service';
 import {ReservationService} from './services/reservation.service';
 import { HttpClientModule ,HttpClientJsonpModule } from '@angular/common/http';
 import { FlightsListComponent } from './flights-list/flights-list.component';
-import { FlightComponent } from './flight/flight.component';
 import { ParticipantListComponent } from './participant-list/participant-list.component';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
 import { AddFlightComponent } from './add-flight/add-flight.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddParticipantComponent } from './add-participant/add-participant.component';
 import { AddReservationComponent } from './add-reservation/add-reservation.component';
-
+import { FlightDetailsComponent } from './flight-details/flight-details.component';
+import { ParticipantDetailsComponent } from './participant-details/participant-details.component';
+import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
+// import { ActivatedRoute } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
     FlightsListComponent,
-    FlightComponent,
     ParticipantListComponent,
     ReservationListComponent,
     AddFlightComponent,
     AddParticipantComponent,
-    AddReservationComponent
+    AddReservationComponent,
+    FlightDetailsComponent,
+    ParticipantDetailsComponent,
+    ReservationDetailsComponent
   ],
   imports: [
+    // ActivatedRoute,
     BrowserModule,
     AppRoutingModule,
     NgbModule,

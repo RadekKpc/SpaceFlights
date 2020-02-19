@@ -14,8 +14,6 @@ export class AddReservationComponent implements OnInit {
   ngOnInit() :void{
 
     this.modelForm = this.formBuilder.group({
-      startDate: ['', Validators.required],
-      endDate: ['',Validators.required],
       isPaid: ['Not Known'],
       flightID: ['',Validators.required],
       participantID: ['',Validators.required]
@@ -31,12 +29,7 @@ export class AddReservationComponent implements OnInit {
 
   modelForm : FormGroup;
   private validationMessages = {
-    startDate: {
-      required: 'Begin date is required'
-    },
-    endDate: {
-      required: 'End date is required',
-    },
+
     flightID: {
       required: 'flight ID is required'
     },
@@ -78,9 +71,9 @@ export class AddReservationComponent implements OnInit {
       'id' : 0,
       'flightID':modelForm.value.flightID,
       'participantID':modelForm.value.participantID,
-      'startDate':modelForm.value.startDate,
-      'endDate':modelForm.value.endDate,
-      'isPaid': 1
+      'startDate':"",
+      'endDate':"",
+      'isPaid': modelForm.value.isPaid,
       };
       console.log(reservation);
     this.reservationService.addReservation(reservation).subscribe(

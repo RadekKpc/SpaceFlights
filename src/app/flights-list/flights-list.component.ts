@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FlightService} from '../services/flight.service'
+import * as $ from 'jquery';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-flights-list',
@@ -12,11 +14,24 @@ export class FlightsListComponent implements OnInit {
 
   flights: Object;
 
-  constructor(private flightService: FlightService) {
+  constructor(private flightService: FlightService,private router: Router) {
    }
 
   ngOnInit() {
     this.getFlights();
+  //   $('.table > tbody > tr').click(function() {
+  //     console.log("ssad");
+  // });
+//   $(document).ready(function() {
+
+//     $('.clicable tr').click(function() {
+
+//         let id = $(this).children()[0].innerHTML;
+//     });
+
+// });
+
+
     // this.flightService.getAllFlights().subscribe(flight => console.log(flight));
     // this.flightService.getFlightById(50).subscribe(flight => console.log(flight));
     // this.flightService.addFlight(this.flight).subscribe(flight => console.log(flight));
@@ -35,6 +50,9 @@ export class FlightsListComponent implements OnInit {
     // this.getFlights();
   }
 
+  navigateToDetails(id){
+    this.router.navigate(['/flight/details/'+id]);
+  }
   // searchFlights({searchName,minSem,maxSem,minRating,maxRating,minEcts,maxEcts}){
   //   this.searchName = searchName;
   //   this.minSem = minSem;
