@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input} from '@angular/core';
 import {FlightService} from '../services/flight.service'
-import * as $ from 'jquery';
 import {Router} from "@angular/router";
+import { ReservationService } from '../services/reservation.service';
 
 @Component({
   selector: 'app-flights-list',
@@ -12,6 +12,7 @@ import {Router} from "@angular/router";
 
 export class FlightsListComponent implements OnInit {
 
+  @Input("reservation") reservation: boolean;
   flights: Object;
   freePlaces: Object;
   minPrice:number;
@@ -19,13 +20,21 @@ export class FlightsListComponent implements OnInit {
   minDate:string;
   maxDate:string;
   freePlacesSearch: number;
+  result:any;
 
-  constructor(private flightService: FlightService,private router: Router) {
+  constructor(private flightService: FlightService,private router: Router,private reservationService:ReservationService) {
    }
 
   ngOnInit() {
     this.freePlaces = {};
+    if(this.reservation){
+      this.getFreeFlights();
+    }
+    else{
     this.getFlights();
+
+  }
+    console.log(this.reservation);
 
   }
 
@@ -38,6 +47,14 @@ export class FlightsListComponent implements OnInit {
         });
    }
 
+   getFreeFlights(){
+    this.flightService.getAllFreeFlights().subscribe(
+      flights => {
+        this.flights = flights;
+       console.log(flights);
+       this.getFreePlaces();
+       });
+   }
 
    getFreePlaces(){
      this.flightService.getFreePlaces().subscribe(freePlaces =>
@@ -58,6 +75,18 @@ export class FlightsListComponent implements OnInit {
     this.minDate = minDate;
     this.maxDate = maxDate;
     this.freePlacesSearch = freePlaces;
+  }
+  reserveFligt(flightID,participantID){
+    this.reservationService.addReservation(
+      {
+        'id' : 0,
+        'flightID':flightID,
+        'participantID':participantID,
+        'startDate':"",
+        'endDate':"",
+        'isPaid': 0,
+        }
+    ).subscribe(r => {this.result = r});
   }
 
 

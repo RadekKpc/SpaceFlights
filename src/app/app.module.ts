@@ -23,6 +23,7 @@ import { SearchFlightComponent } from './search-flight/search-flight.component';
 import { ValuesPipe } from './Pipes/OnlyValuesPipe';
 import { SearchParticipantComponent } from './search-participant/search-participant.component';
 import {searchSurenamePipe,searchNamePipe} from './pipes/searchParticiapntPipe';
+import { ReservationPanelComponent } from './reservation-panel/reservation-panel.component';
 // import { ActivatedRoute } from '@angular/router';
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {searchSurenamePipe,searchNamePipe} from './pipes/searchParticiapntPipe';
     searchFreePlaces,
     SearchParticipantComponent,
     searchSurenamePipe,
-    searchNamePipe
+    searchNamePipe,
+    ReservationPanelComponent
   ],
   imports: [
     // ActivatedRoute,

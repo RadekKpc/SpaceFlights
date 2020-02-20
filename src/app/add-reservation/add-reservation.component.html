@@ -4,8 +4,12 @@
     <hr>
     <br>
     <div class='col-12 text-center'>
-    <h1>Add new Reservation</h1>
+    <h2>New Reservation</h2>
     <br>
+    <div class='col-12 text-center' style='margin-top: 20px;'>
+        <h6>Add</h6>
+        <br>
+    </div>
     </div>
     <form [formGroup]="modelForm" (ngSubmit)="onSubmit(modelForm)">
 
@@ -45,4 +49,12 @@
         <button [disabled]="!modelForm.valid" type="submit" class="btn btn-success" >Add</button>
     </form>
     </div>
-    </div>
+</div>
+<div class='col-12 text-center' style='margin-top: 20px;'>
+    <h6>Try search</h6>
+    <br>
+</div>
+<div class="d-flex justify-content-center" >
+    <button (click)="navigateToParticipantList()" class="btn btn-info" >Search Participant</button>
+    <button (click)="navigateToFlightList()" class="btn btn-info" style='margin-left: 20px;'>Search Flight</button>
+</div>

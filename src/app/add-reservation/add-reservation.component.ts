@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators,AbstractControl} from '@angular/forms';
-import {ReservationService} from '../services/reservation.service'
+import {ReservationService} from '../services/reservation.service';
+import {Router} from "@angular/router";
+
 @Component({
   selector: 'app-add-reservation',
   templateUrl: './add-reservation.component.html',
@@ -9,7 +11,7 @@ import {ReservationService} from '../services/reservation.service'
 export class AddReservationComponent implements OnInit {
 
   response: Object;
-  constructor(private formBuilder: FormBuilder,private reservationService:ReservationService) { }
+  constructor(private formBuilder: FormBuilder,private reservationService:ReservationService,private router: Router) { }
 
   ngOnInit() :void{
 
@@ -79,6 +81,12 @@ export class AddReservationComponent implements OnInit {
     this.reservationService.addReservation(reservation).subscribe(
       response => {this.response = response; console.log(response)}
     );
+  }
+  navigateToParticipantList(){
+    this.router.navigate(['/participant/list']);
+  }
+  navigateToFlightList(){
+    this.router.navigate(['/flight/list']);
   }
 
 }

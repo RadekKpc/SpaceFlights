@@ -21,9 +21,12 @@
                                 <th>{{flight.startDate}}</th>
                                 <td>{{flight.endDate}}</td>
                                 <td>{{flight.participantCapacity}}</td>
-                                <td><div *ngIf='freePlaces[flight.id]'> {{freePlaces[flight.id]}}</div><div *ngIf='!freePlaces[flight.id]'> {{flight.participantCapacity}}</div></td>
+                                <td><div *ngIf='freePlaces[flight.id] || freePlaces[flight.id] == 0'> {{freePlaces[flight.id]}}</div><div *ngIf='!freePlaces[flight.id] && freePlaces[flight.id] != 0'> {{flight.participantCapacity}}</div></td>
                                 <td>{{flight.price}}</td>
-                                <td><button class='btn btn-success'(click)="navigateToDetails(flight.id)">More</button></td>
+                                <td><button *ngIf='!reservation' class='btn btn-success'(click)="navigateToDetails(flight.id)">More</button>
+                                <!-- After add authentication reserveFligt shoud give login participant's id rather '0'-->
+                                    <button *ngIf='reservation' (click)="reserveFligt(flight.id,1)"  class=" btn btn-primary btn-warning"><i class="material-icons d-none d-md-inline" style="font-size: 14px;">star_border</i>Reserve</button>
+                                </td>
                         </tr>
                   </tbody>
 

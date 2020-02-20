@@ -40,4 +40,7 @@ export class FlightService {
   getFlightIdByParticipant(id:number,isPaid:String){
     return this.http.get('http://localhost:8080/flight-participant/'+isPaid+'/'+id);
   }
+  getAllFreeFlights():Observable<any>{
+    return this.http.get('http://localhost:8080/flight/places');
+  }
 }

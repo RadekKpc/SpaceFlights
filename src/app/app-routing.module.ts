@@ -9,10 +9,11 @@ import {AddReservationComponent} from './add-reservation/add-reservation.compone
 import {FlightDetailsComponent} from './flight-details/flight-details.component'
 import {ParticipantDetailsComponent} from './participant-details/participant-details.component'
 import {ReservationDetailsComponent} from './reservation-details/reservation-details.component'
+import {ReservationPanelComponent} from './reservation-panel/reservation-panel.component'
 
 const routes: Routes = [
   {path:'', redirectTo: '/reservation',pathMatch: 'full' },
-  {path:'reservation',component: ReservationListComponent},
+  {path:'reservation',component: ReservationPanelComponent},
   {path:'reservation/add',component: AddReservationComponent},
   {path:'reservation/list',component: ReservationListComponent},
   {path:'flight/add',component: AddFlightComponent},
