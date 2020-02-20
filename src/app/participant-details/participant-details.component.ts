@@ -23,8 +23,10 @@ export class ParticipantDetailsComponent implements OnInit {
 
   getParticipant(){
     this.participantService.getParticipantById(this.id).subscribe(
-      participant => {this.participant = participant; console.log(participant)}
-    );
+      participant => {this.participant = participant; console.log(participant);
+        this.getPaidFlights();
+        this.getUnpaidFlights();
+      });
   }
   //It means that participant took part in flight
   getPaidFlights(){
@@ -41,8 +43,7 @@ export class ParticipantDetailsComponent implements OnInit {
   ngOnInit() {
     this.sub = this.activatedRoute.params.subscribe(params =>{ this.id =+ params['id']});
     this.getParticipant();
-    this.getPaidFlights();
-    this.getUnpaidFlights();
+
   }
   ngOnDestroy(){
     this.sub.unsubscribe();
@@ -50,6 +51,9 @@ export class ParticipantDetailsComponent implements OnInit {
   delteParticipant(id: number){
     this.participantService.deleteParticipant(id).subscribe(response => console.log(response));
     this.router.navigate(['/participant/list']);
+  }
+  navigateToDetailsFlight(id:number){
+    this.router.navigate(['/flight/details/'+id]);
   }
 
 }

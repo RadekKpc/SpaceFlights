@@ -12,6 +12,7 @@
                       <th scope="col">Begin date</th>
                       <th scope="col">End Date</th>
                       <th scope="col">is paid</th>
+                      <th scope="col">Details</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -22,7 +23,7 @@
                                 <td>{{reservation.startDate}}</td>
                                 <td>{{reservation.endDate}}</td>
                                 <td><div *ngIf='reservation.isPaid == 1'> Yes</div><div *ngIf='reservation.isPaid == 0'> No</div></td>
-                            <!-- <app-flight [flight] = "flight" (flightIsDeleted)="deleteFlight($event)"></app-flight> -->
+                                <td><button class='btn btn-success'(click)="navigateToDetails(reservation.id)">More</button></td>
                         </tr>
                   </tbody>
             </table>

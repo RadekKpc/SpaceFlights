@@ -14,7 +14,9 @@
           <p class="card-text">Notes: {{participant.notes}}</p>
         </div>
         <div class="card-body">
-            <h6 class="card-title">Functions</h6>
+            <div class="card-header" style="margin-bottom: 15px;">
+                <b>Functions</b>
+            </div>
             <div class='text-left'>
                 <button (click)="delteParticipant(participant.id)"  class=" btn btn-primary btn-danger">Delete Participant</button>
             </div>
@@ -32,15 +34,17 @@
                                 <th scope="col">Return date</th>
                                 <th scope="col">Pssengers</th>
                                 <th scope="col">Price</th>
+                                <th scope="col">More</th>
                             </tr>
                           </thead>
                           <tbody>
                                 <tr *ngFor="let flight of paidFlights">
-                                    <th >{{flight.id}}</th>
+                                        <th >{{flight.id}}</th>
                                         <th >{{flight.startDate}}</th>
                                         <td>{{flight.endDate}}</td>
                                         <td>{{flight.participantCapacity}}</td>
                                         <td>{{flight.price}}</td>
+                                        <td><button class='btn btn-success'(click)="navigateToDetailsFlight(flight.id)">More</button></td>
                                 </tr>
                           </tbody>
                     </table>
@@ -61,15 +65,17 @@
                                 <th scope="col">Return date</th>
                                 <th scope="col">Pssengers</th>
                                 <th scope="col">Price</th>
+                                <th scope="col">More</th>
                             </tr>
                           </thead>
                           <tbody>
                                 <tr *ngFor="let flight of unpaidFlights">
-                                    <th >{{flight.id}}</th>
+                                        <th >{{flight.id}}</th>
                                         <th >{{flight.startDate}}</th>
                                         <td>{{flight.endDate}}</td>
                                         <td>{{flight.participantCapacity}}</td>
                                         <td>{{flight.price}}</td>
+                                        <td><button class='btn btn-success'(click)="navigateToDetailsFlight(flight.id)">More</button></td>
                                 </tr>
                           </tbody>
                     </table>

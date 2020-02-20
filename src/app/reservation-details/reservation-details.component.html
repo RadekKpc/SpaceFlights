@@ -1,1 +1,65 @@
-<p>reservation-details works!</p>
+
+<div *ngIf='reservation != null' style='margin-top: 50px '>
+    <div class="card text-center text-white bg-dark mb-3">
+        <div class="card-header">
+          <b>Reservation {{reservation.id}}</b>
+        </div>
+        <div class="card-body text-left">
+          <h6 class="card-title text-center">Details</h6>
+          <p class="card-text">id: {{reservation.id}}</p>
+          <p class="card-text">Flight ID: {{reservation.flightID}}</p>
+          <p class="card-text">Participant ID: {{reservation.participantID}}</p>
+          <p class="card-text">Begin Date: {{reservation.startDate}}</p>
+          <p class="card-text">End Date: {{reservation.endDate}}</p>
+          <div class="card-text"><div *ngIf='reservation.isPaid == 1'>Is paid: Yes</div><div *ngIf='reservation.isPaid == 0'>Is paid: No</div></div>
+        </div>
+        <div class="card-body">
+            <div class="card-header" style="margin-bottom: 15px;">
+                <b>Functions</b>
+            </div>
+            <div class='text-left'>
+                <button (click)="delteReservation(reservation.id)" style='margin-right: 10px;'  class=" btn btn-primary btn-danger">Delete Reservation</button>
+
+                <button (click)="paidReservation(reservation.id)"  class=" btn btn-primary btn-warning"><i class="material-icons" style="font-size: 14px;">star_border</i>Paid Reservation </button>
+            </div>
+        </div>
+        <div class="card-body">
+
+            <div class="card-header">
+            <b>Participant {{participant.id}}</b>
+          </div>
+
+          <div class="card-body text-left">
+            <p class="card-text">Name: {{participant.name}}</p>
+            <p class="card-text">Surname: {{participant.surname}}</p>
+            <p class="card-text">Gender: {{participant.gender}}</p>
+            <p class="card-text">Country: {{participant.country}}</p>
+            <p class="card-text">Birth Date: {{participant.birthDate}}</p>
+            <p class="card-text">Notes: {{participant.notes}}</p>
+            <div class='text-left'>
+                <td><button class='btn btn-success'(click)="navigateToDetailsParticipant(participant.id)">More</button></td>
+            </div>
+          </div>
+
+          <div class="card-header">
+            <b>Flight {{flight.id}}</b>
+          </div>
+
+          <div class="card-body text-left">
+            <p class="card-text">Begin Date: {{flight.startDate}}</p>
+            <p class="card-text">End Date: {{flight.endDate}}</p>
+            <p class="card-text">Places: {{flight.participantCapacity}}</p>
+            <p class="card-text">Price: {{flight.price}}</p>
+            <div class='text-left'>
+                <td><button class='btn btn-success'(click)="navigateToDetailsFlight(flight.id)">More</button></td>
+            </div>
+          </div>
+
+        </div>
+      </div>
+</div>
+<div *ngIf='reservation == null' >
+    <ngb-alert >
+        <strong>Warning!</strong> Given Participant not exists!
+    </ngb-alert>
+</div>
