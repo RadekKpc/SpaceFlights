@@ -18,6 +18,10 @@ import { AddReservationComponent } from './add-reservation/add-reservation.compo
 import { FlightDetailsComponent } from './flight-details/flight-details.component';
 import { ParticipantDetailsComponent } from './participant-details/participant-details.component';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
+import {searchPrice,searchDate} from './pipes/searchFlightPipe';
+import { SearchFlightComponent } from './search-flight/search-flight.component';
+import { ValuesPipe } from './Pipes/OnlyValuesPipe';
+
 // import { ActivatedRoute } from '@angular/router';
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import { ReservationDetailsComponent } from './reservation-details/reservation-d
     AddReservationComponent,
     FlightDetailsComponent,
     ParticipantDetailsComponent,
-    ReservationDetailsComponent
+    ReservationDetailsComponent,
+    searchPrice,
+    SearchFlightComponent,
+    ValuesPipe,
+    searchDate
   ],
   imports: [
     // ActivatedRoute,

@@ -1,6 +1,6 @@
 <div class="container" >
-    <!-- <app-search-course-panel (propertiesAreChanged)="searchCourses($event)">
-    </app-search-course-panel> -->
+    <app-search-flight (propertiesAreChanged)="searchCourses($event)">
+    </app-search-flight>
     <div class='row' >
         <div class='col-12' style='margin-top: 20px; margin-bottom: 20px'>
             <table class='table clicable table-hover table-striped table-dark' style="font-size: 13px;">
@@ -16,7 +16,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                        <tr  *ngFor="let flight of flights">
+                        <tr  *ngFor="let flight of flights |  keyvalue | valuesPipe | searchPrice : minPrice : maxPrice | searchDate : minDate : maxDate">
                                 <th>{{flight.id}}</th>
                                 <th>{{flight.startDate}}</th>
                                 <td>{{flight.endDate}}</td>
@@ -33,8 +33,4 @@
     </div>
 
 </div>
-<div *ngIf='flight == null' >
-    <ngb-alert >
-        <strong>Warning!</strong> Given Flight not exists!
-    </ngb-alert>
-</div>
+
