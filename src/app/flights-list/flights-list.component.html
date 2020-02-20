@@ -21,7 +21,7 @@
                                 <th>{{flight.startDate}}</th>
                                 <td>{{flight.endDate}}</td>
                                 <td>{{flight.participantCapacity}}</td>
-                                <td>2</td>
+                                <td><div *ngIf='freePlaces[flight.id]'> {{freePlaces[flight.id]}}</div><div *ngIf='!freePlaces[flight.id]'> {{flight.participantCapacity}}</div></td>
                                 <td>{{flight.price}}</td>
                                 <td><button class='btn btn-success'(click)="navigateToDetails(flight.id)">More</button></td>
                         </tr>

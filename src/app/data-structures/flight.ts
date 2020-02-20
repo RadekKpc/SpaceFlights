@@ -1,7 +1,7 @@
 export interface Flight {
     id: number;
-    endDate: String;
-    startDate: String;
+    endDate: string;
+    startDate: string;
     participantCapacity: number;
     price: number;
 

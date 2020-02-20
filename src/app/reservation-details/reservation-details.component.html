@@ -20,7 +20,7 @@
             <div class='text-left'>
                 <button (click)="delteReservation(reservation.id)" style='margin-right: 10px;'  class=" btn btn-primary btn-danger">Delete Reservation</button>
 
-                <button (click)="paidReservation(reservation.id)"  class=" btn btn-primary btn-warning"><i class="material-icons" style="font-size: 14px;">star_border</i>Paid Reservation </button>
+                <button (click)="payReservation(reservation.id)"  class=" btn btn-primary btn-warning"><i class="material-icons" style="font-size: 14px;">star_border</i>Pay Reservation </button>
             </div>
         </div>
         <div class="card-body">
@@ -60,6 +60,6 @@
 </div>
 <div *ngIf='reservation == null' >
     <ngb-alert >
-        <strong>Warning!</strong> Given Participant not exists!
+        <strong>Warning!</strong> Given reservation not exists!
     </ngb-alert>
 </div>

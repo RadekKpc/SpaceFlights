@@ -1,6 +1,7 @@
 import {Pipe,PipeTransform} from '@angular/core'
 import {Flight} from '../data-structures/flight'
 
+//searching by prices
 @Pipe({ name: 'searchPrice' })
 export class searchPrice implements PipeTransform {
     transform(flights: Flight[], minPrice:number,maxPrice:number): Flight[]{
@@ -15,16 +16,30 @@ export class searchPrice implements PipeTransform {
     }
 }
 
+//searching by date and time
 @Pipe({ name: 'searchDate' })
 export class searchDate implements PipeTransform {
     transform(flights: Flight[], minDate:string,maxDate:string): Flight[]{
 
         if(!flights)return [];
-        if(!minDate)minDate="";
-        if(!maxDate)maxDate="";
 
+        if(!minDate)
         return flights.filter(flight => {
             return (true);
+        });
+
+        if(!maxDate)
+        return flights.filter(flight => {
+            return (true);
+        });
+
+        console.log(minDate);
+        console.log(maxDate);
+
+        return flights.filter(flight => {
+            return  Date.parse(flight.startDate) >= Date.parse(minDate)
+                && Date.parse(flight.endDate) <= Date.parse(maxDate);
+
         });
     }
 }

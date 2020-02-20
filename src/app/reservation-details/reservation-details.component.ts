@@ -61,8 +61,9 @@ export class ReservationDetailsComponent implements OnInit {
   navigateToDetailsFlight(id:number){
     this.router.navigate(['/flight/details/'+id]);
   }
-  paidReservation(id:number){
-    // this.reservationService.
+  payReservation(id:number){
+    this.reservationService.payReservation(id).subscribe(response => console.log(response));
+    this.router.navigate(['/reservation/details/'+this.reservation.id]);
   }
 
 }

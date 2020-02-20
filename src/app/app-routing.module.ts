@@ -12,7 +12,7 @@ import {ReservationDetailsComponent} from './reservation-details/reservation-det
 
 const routes: Routes = [
   {path:'', redirectTo: '/reservation',pathMatch: 'full' },
-  // {path:'reservation',component: Reservation},
+  {path:'reservation',component: ReservationListComponent},
   {path:'reservation/add',component: AddReservationComponent},
   {path:'reservation/list',component: ReservationListComponent},
   {path:'flight/add',component: AddFlightComponent},

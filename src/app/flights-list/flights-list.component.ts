@@ -8,12 +8,12 @@ import {Router} from "@angular/router";
   templateUrl: './flights-list.component.html',
   styleUrls: ['./flights-list.component.css']
 })
+
+
 export class FlightsListComponent implements OnInit {
 
-
-
   flights: Object;
-
+  freePlaces: Object;
   minPrice:number;
   maxPrice:number;
   minDate:string;
@@ -23,15 +23,28 @@ export class FlightsListComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.freePlaces = {};
     this.getFlights();
+
   }
 
    getFlights(){
      this.flightService.getAllFlights().subscribe(
-       flights => {this.flights = flights; console.log(flights)}
-     );
+       flights => {
+         this.flights = flights;
+        console.log(flights);
+        this.getFreePlaces();
+        });
    }
 
+
+   getFreePlaces(){
+     this.flightService.getFreePlaces().subscribe(freePlaces =>
+      {freePlaces.forEach(f => {
+        this.freePlaces[f.id]=f.freePlaces;
+      });
+         console.log(this.freePlaces)});
+   }
 
   navigateToDetails(id){
     this.router.navigate(['/flight/details/'+id]);

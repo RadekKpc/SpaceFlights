@@ -30,6 +30,9 @@ export class ReservationService {
 
   }
   deleteReservation(id:number){
-    return this.http.delete('http://localhost:8080//reservation/delete/'+id);
+    return this.http.delete('http://localhost:8080/reservation/delete/'+id);
+  }
+  payReservation(id:number){
+    return this.http.put('http://localhost:8080/reservation/pay/'+id,{});
   }
 }

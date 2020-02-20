@@ -16,6 +16,10 @@ export class FlightService {
   getAllFlights():Observable<any>{
     return this.http.get('http://localhost:8080/flight');
   }
+  getFreePlaces():Observable<any>{
+    return this.http.get('http://localhost:8080/flight/free');
+  }
+
   addFlight(flight): Observable<any>{
 
     let headers = new Headers({ 'Content-Type': 'application/json' });
