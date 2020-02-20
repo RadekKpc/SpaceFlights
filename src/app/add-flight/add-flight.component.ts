@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FlightService} from '../services/flight.service'
 import {FormBuilder, FormGroup, Validators,AbstractControl} from '@angular/forms';
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-add-flight',
@@ -10,7 +12,7 @@ import {FormBuilder, FormGroup, Validators,AbstractControl} from '@angular/forms
 export class AddFlightComponent implements OnInit {
 
   response: Object;
-  constructor(private formBuilder: FormBuilder,private flightService: FlightService) { }
+  constructor(private formBuilder: FormBuilder,private flightService: FlightService, private router:Router) { }
 
   ngOnInit() :void{
 
@@ -80,5 +82,6 @@ export class AddFlightComponent implements OnInit {
     this.flightService.addFlight(flight).subscribe(
       response => {this.response = response; console.log(response)}
     );
+    this.router.navigate(['/flight/list']);
   }
 }

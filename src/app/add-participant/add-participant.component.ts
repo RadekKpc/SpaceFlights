@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators,AbstractControl} from '@angular/forms';
-import {ParticipantService} from '../services/participant.service'
+import {ParticipantService} from '../services/participant.service';
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-add-participant',
   templateUrl: './add-participant.component.html',
@@ -9,7 +10,7 @@ import {ParticipantService} from '../services/participant.service'
 export class AddParticipantComponent implements OnInit {
 
   response: Object;
-  constructor(private formBuilder: FormBuilder,private participantService:ParticipantService) { }
+  constructor(private formBuilder: FormBuilder,private participantService:ParticipantService,private router:Router) { }
 
   ngOnInit() :void{
 
@@ -84,6 +85,7 @@ export class AddParticipantComponent implements OnInit {
     this.participantService.addParticipant(participant).subscribe(
       response => {this.response = response; console.log(response)}
     );
+    this.router.navigate(['/participant/list']);
   }
 
 }
