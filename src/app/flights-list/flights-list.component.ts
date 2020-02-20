@@ -18,6 +18,7 @@ export class FlightsListComponent implements OnInit {
   maxPrice:number;
   minDate:string;
   maxDate:string;
+  freePlacesSearch: number;
 
   constructor(private flightService: FlightService,private router: Router) {
    }
@@ -51,11 +52,12 @@ export class FlightsListComponent implements OnInit {
   }
 
 
-  searchCourses({minPrice,maxPrice,minDate,maxDate}){
+  searchFlight({minPrice,maxPrice,minDate,maxDate,freePlaces}){
     this.minPrice = minPrice;
     this.maxPrice = maxPrice;
     this.minDate = minDate;
     this.maxDate = maxDate;
+    this.freePlacesSearch = freePlaces;
   }
 
 

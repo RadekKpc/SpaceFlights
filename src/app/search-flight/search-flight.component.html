@@ -5,27 +5,29 @@
 <br>
 <hr>
 
-<!-- <label for="minSem"><h5>Semestr:</h5><br><b>min: </b>{{minSem}}</label>
-<input [(ngModel)]="minSem" type="range" class="custom-range" min="0" max="7" step="1"id="minSem">
-
 <br>
-<label for="maxSem" ><b>max: </b>{{maxSem}}</label>
-<input [(ngModel)]="maxSem" type="range" class="custom-range" min="0" max="7" step="1"id="maxSem">
 
-<br> -->
+<label for="freePlaces" ><h6>Free places:</h6></label><br>
+<div class='row'>
+    <div class="col-sm-2 col-md-4"></div>
+    <input [(ngModel)]="freePlaces" class="form-control col-12 col-sm-8 col-md-4" id="freePlaces">
+    <div class="col-sm-2 col-md-4"></div>
+    <br>
+</div>
+<br>
 <label for="minDate" ><h6>Flight date between</h6></label>
-<input type="datetime-local" [(ngModel)]="minDate" class="form-control col-12" id="minDate" >
+<div class='row'>
+    <div class="col-sm-2 col-md-4"></div>
+    <input type="datetime-local" [(ngModel)]="minDate" class="form-control col-12 col-sm-8 col-md-4" id="minDate" >
+    <div class="col-sm-2 col-md-4"></div>
+</div>
 <br>
-<label for="maxDate" ><b>and</b></label>
-<input type="datetime-local" [(ngModel)]="maxDate" class="form-control col-12" id="maxDate" >
-
-<!-- <br> -->
-<!-- <label for="minRating" ><h5>Przedział średniej ocen</h5><br><b>min:</b>{{minRating}}</label>
-<input [(ngModel)]="minRating" type="range" class="custom-range" min="0" max="10" step="0.1"id="minRating">
-
-<label for="maxRating"><b>max </b>{{maxRating}}</label>
-<input [(ngModel)]="maxRating" type="range" class="custom-range" min="0" max="10" step="0.1"id="maxRating"> -->
-
+<label for="maxDate" ><h6>and</h6></label>
+<div class='row'>
+    <div class="col-sm-2 col-md-4"></div>
+    <input type="datetime-local" [(ngModel)]="maxDate" class="form-control col-12 col-sm-8 col-md-4" id="maxDate" >
+    <div class="col-sm-2 col-md-4"></div>
+</div>
 <br>
 <label for="minPrice" ><h6>Price between:</h6><br><b>min:</b>{{minPrice}}</label>
 <input [(ngModel)]="minPrice" type="range" class="custom-range" min="0" max="10000" step="1"id="minPrice">
@@ -33,5 +35,5 @@
 <label for="maxPrice"><b>max: </b>{{maxPrice}}</label>
 <input [(ngModel)]="maxPrice" type="range" class="custom-range" min="0" max="10000" step="1"id="maxPrice">
 <button (click)='onChangeProperties()' class='btn btn-success'>Search</button>
-<!-- <small  *ngIf="formErrors.desc" class="form-text text-muted" id="descError">{{ formErrors.desc }}</small> -->
+
 </div>

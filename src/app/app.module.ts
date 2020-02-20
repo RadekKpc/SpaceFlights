@@ -18,10 +18,11 @@ import { AddReservationComponent } from './add-reservation/add-reservation.compo
 import { FlightDetailsComponent } from './flight-details/flight-details.component';
 import { ParticipantDetailsComponent } from './participant-details/participant-details.component';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
-import {searchPrice,searchDate} from './pipes/searchFlightPipe';
+import {searchPrice,searchDate,searchFreePlaces} from './pipes/searchFlightPipe';
 import { SearchFlightComponent } from './search-flight/search-flight.component';
 import { ValuesPipe } from './Pipes/OnlyValuesPipe';
-
+import { SearchParticipantComponent } from './search-participant/search-participant.component';
+import {searchSurenamePipe,searchNamePipe} from './pipes/searchParticiapntPipe';
 // import { ActivatedRoute } from '@angular/router';
 @NgModule({
   declarations: [
@@ -38,7 +39,11 @@ import { ValuesPipe } from './Pipes/OnlyValuesPipe';
     searchPrice,
     SearchFlightComponent,
     ValuesPipe,
-    searchDate
+    searchDate,
+    searchFreePlaces,
+    SearchParticipantComponent,
+    searchSurenamePipe,
+    searchNamePipe
   ],
   imports: [
     // ActivatedRoute,

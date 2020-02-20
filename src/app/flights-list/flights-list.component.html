@@ -1,5 +1,5 @@
 <div class="container" >
-    <app-search-flight (propertiesAreChanged)="searchCourses($event)">
+    <app-search-flight (propertiesAreChanged)="searchFlight($event)">
     </app-search-flight>
     <div class='row' >
         <div class='col-12' style='margin-top: 20px; margin-bottom: 20px'>
@@ -16,7 +16,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                        <tr  *ngFor="let flight of flights |  keyvalue | valuesPipe | searchPrice : minPrice : maxPrice | searchDate : minDate : maxDate">
+                        <tr  *ngFor="let flight of flights |  keyvalue | valuesPipe | searchPrice : minPrice : maxPrice | searchDate : minDate : maxDate | searchFreePlaces : freePlacesSearch : freePlaces">
                                 <th>{{flight.id}}</th>
                                 <th>{{flight.startDate}}</th>
                                 <td>{{flight.endDate}}</td>

@@ -8,6 +8,12 @@ import {Router} from "@angular/router";
 })
 export class ParticipantListComponent implements OnInit {
 
+  //properties to search
+  name: string;
+  surname: string;
+  nameParametr = 'name';
+  sureName = 'surename';
+  //propertist to get from database
   participants: Object;
 
   constructor(private participantService: ParticipantService,private router:Router) { }
@@ -23,5 +29,9 @@ export class ParticipantListComponent implements OnInit {
   }
   navigateToDetails(id){
     this.router.navigate(['/participant/details/'+id]);
+  }
+  searchParticipant({name,surname}){
+    this.name = name;
+    this.surname = surname;
   }
 }

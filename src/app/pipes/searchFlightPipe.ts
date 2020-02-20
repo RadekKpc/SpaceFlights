@@ -22,19 +22,8 @@ export class searchDate implements PipeTransform {
     transform(flights: Flight[], minDate:string,maxDate:string): Flight[]{
 
         if(!flights)return [];
-
-        if(!minDate)
-        return flights.filter(flight => {
-            return (true);
-        });
-
-        if(!maxDate)
-        return flights.filter(flight => {
-            return (true);
-        });
-
-        console.log(minDate);
-        console.log(maxDate);
+        if(!minDate) return flights;
+        if(!maxDate) return flights;
 
         return flights.filter(flight => {
             return  Date.parse(flight.startDate) >= Date.parse(minDate)
@@ -42,4 +31,22 @@ export class searchDate implements PipeTransform {
 
         });
     }
+}
+
+//searching by free places
+@Pipe({ name: 'searchFreePlaces' })
+export class searchFreePlaces implements PipeTransform {
+    transform(flights: Flight[], minFreePlaces:number, freePlaces:Object ): Flight[]{
+
+
+        if(!flights)return [];
+        if(!freePlaces)return flights;
+        if(!minFreePlaces)return flights;
+
+        return flights.filter(flight => {
+            return ((freePlaces[flight.id]) ? freePlaces[flight.id] >= minFreePlaces : flight.participantCapacity >= minFreePlaces);
+        });
+    }
+
+
 }

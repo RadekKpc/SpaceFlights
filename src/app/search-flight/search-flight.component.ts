@@ -1,4 +1,5 @@
 import { Component, OnInit,Output, EventEmitter  } from '@angular/core';
+import { NumberValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'app-search-flight',
@@ -8,13 +9,14 @@ import { Component, OnInit,Output, EventEmitter  } from '@angular/core';
 export class SearchFlightComponent implements OnInit {
 
 
-   minPrice:number= 0.00;
-   maxPrice:number= 10000.00;
+  minPrice:number= 0.00;
+  maxPrice:number= 10000.00;
   minDate:string;
   maxDate:string;
+  freePlaces:number;
   @Output() propertiesAreChanged:
-   EventEmitter<{minPrice:number,maxPrice:number,minDate:string,maxDate:string}>=
-  new EventEmitter<{minPrice:number,maxPrice:number,minDate:string,maxDate:string}>();
+   EventEmitter<{minPrice:number,maxPrice:number,minDate:string,maxDate:string,freePlaces:number}>=
+  new EventEmitter<{minPrice:number,maxPrice:number,minDate:string,maxDate:string,freePlaces:number}>();
 
   constructor() {
   }
@@ -27,7 +29,8 @@ export class SearchFlightComponent implements OnInit {
     let maxPrice = this.maxPrice;
     let minDate=this.minDate;
     let maxDate = this.maxDate;
-    this.propertiesAreChanged.emit({minPrice,maxPrice,minDate,maxDate});
+    let freePlaces = this.freePlaces;
+    this.propertiesAreChanged.emit({minPrice,maxPrice,minDate,maxDate,freePlaces});
   }
 
 }

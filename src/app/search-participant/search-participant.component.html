@@ -1,0 +1,29 @@
+<hr>
+<br>
+<div class='col-12 text-center'>
+    <h1>Search Space Flight</h1>
+<br>
+<hr>
+
+<br>
+
+<label for="name" ><h6>Name:</h6></label><br>
+<div class='row'>
+    <div class="col-sm-2 col-md-4"></div>
+    <input [(ngModel)]="name" class="form-control col-12 col-sm-8 col-md-4" id="name">
+    <div class="col-sm-2 col-md-4"></div>
+    <br>
+</div>
+<br>
+<label for="surname" ><h6>Surname:</h6></label><br>
+<div class='row'>
+    <div class="col-sm-2 col-md-4"></div>
+    <input [(ngModel)]="surname" class="form-control col-12 col-sm-8 col-md-4" id="surname">
+    <div class="col-sm-2 col-md-4"></div>
+    <br>
+</div>
+<br>
+<button (click)='onChangeProperties()' class='btn btn-success'>Search</button>
+
+
+</div>
